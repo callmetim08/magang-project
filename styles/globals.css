@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
-
-/* ===== CSS yang sudah dipindahkan dari index.js ===== */
+/* ===== CSS GLOBAL DAN KUSTOM DARI INDEX.JS ===== */
 * { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
 body { background-color: #cc7b60ff; }
 

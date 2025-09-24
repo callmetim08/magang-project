@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { Autoplay } from "swiper/modules";
 
-import MusicPlayer from "../components/MusicPlayer"; // 🎵 import komponen baru
+import MusicPlayer from "../components/MusicPlayer";
 
 export default function Home() {
   const router = useRouter();
