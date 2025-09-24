@@ -44,158 +44,59 @@ export default function Home() {
 
   return (
     <>
-      <style>{`
-        * { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
-        body { background-color: #cc7b60ff; }
-
-        header {
-          display:flex; align-items:center; gap:12px;
-          background:#cdc186; padding:10px 18px;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-        }
-        .logos { display:flex; gap:8px; align-items:center; }
-        .brand { 
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          font-weight: 900;
-          font-style: italic;
-          font-size: 26px;
-          color: #08121a;
-          text-align: center;
-          line-height: 1;
-          pointer-events: none;
-        }
-
-        .banner p { display:inline-block; padding-left:100%; animation:marquee 14s linear infinite; }
-        @keyframes marquee { 0%{ transform:translateX(0);} 100%{ transform:translateX(-100%);} }
-
-        main {
-          background-color: #57a7e0;
-          padding: 36px 20px 56px 20px;
-        }
-        .container { max-width:1100px; margin:0 auto; }
-
-        .intro-section { display:flex; gap:24px; align-items:center; justify-content:space-between; }
-        .intro-text { flex:1 1 520px; color:#042331; }
-        .intro-text h2 { font-size:26px; font-weight:800; margin-bottom:8px; color:#032032; }
-        .desc { font-size:14px; line-height:1.5; color:#042b3a; margin-bottom:14px; }
-        .btn-group { display:flex; gap:11px; margin-bottom:6px; }
-        .btn { background:#6e78f7; color:white; padding:8px 14px; border-radius:4px; border:none; cursor:pointer; font-weight:600; }
-        .btn.secondary { background:#cfcfff; color:#2b2b8a; }
-
-        .illustration { width:380px; max-width:46%; flex:0 0 380px; }
-        .illustration img { width:100%; height:auto; display:block; border-radius:8px; }
-
-        .section-title { color:#06293a; font-weight:700; font-size:18px; margin:30px 0 14px 0; }
-
-        .popular-sports { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; padding:16px 8px; }
-        .sport-card {
-          background: #ffffffff;
-          width:150px; height:160px; border-radius:8px;
-          display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-          padding:12px; box-shadow: 0 6px 14px rgba(11,15,20,0.06);
-        }
-        .sport-inner-circle {
-          background:#b7b7a3; width:74px; height:74px; border-radius:50%;
-          display:flex; align-items:center; justify-content:center;
-          margin-top:8px; font-size:30px;
-        }
-        .sport-name { margin-top:10px; font-weight:700; font-size:15px; }
-        .partner-count { font-size:12px; margin-top:6px; font-weight:600; }
-
-        .testimonial-section {
-          background: #a79f9cff;
-          padding: 40px 20px;
-          text-align:center;
-        }
-        .testimonial-header { color:#fff; margin-bottom:20px; }
-        .testimonial-header h3 { font-size:22px; margin-bottom:8px; }
-        .testimonial-header p { opacity:0.9; font-size:14px; color:#ddd; }
-
-        .comment-row { display:flex; align-items:center; justify-content:center; gap:14px; }
-        .comment-card {
-          background:#fff;
-          width:720px;
-          max-width: calc(100% - 140px);
-          padding: 18px;
-          border-radius: 6px;
-          box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-          display:flex; gap:14px; align-items:flex-start;
-        }
-        .comment-avatar { width:54px; height:54px; border-radius:50%; background:#d9d9d9;
-          display:flex; align-items:center; justify-content:center; font-size:20px; color:#444; font-weight:bold; }
-        .comment-body { flex:1; text-align:left; }
-        .comment-name { font-weight:800; font-size:15px; margin-bottom:4px; }
-        .comment-role { font-size:12px; margin-bottom:6px; color:#666; }
-        .comment-text { font-style:italic; font-size:13px; color:#222; line-height:1.4; }
-        .comment-stars { margin-left:10px; color:#f4b400; font-size:14px; }
-
-        .nav-btn {
-          background:#fff;
-          border:none;
-          width:40px; height:40px;
-          border-radius:6px;
-          cursor:pointer;
-          font-size:20px;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        @media (max-width: 880px) {
-          .intro-section { flex-direction: column; gap:14px; }
-          .illustration { width:100%; order:2; }
-          .intro-text { order:1; }
-          .sport-card { width:140px; height:150px; }
-          .comment-card { width:92%; flex-direction:column; }
-        }
-
-        .popular-carousel { padding: 20px 0; }
-        .popular-carousel .sport-card { transition: transform 0.4s ease, opacity 0.4s ease; }
-        .swiper-slide { opacity: 0.6; transform: scale(0.85); }
-        .swiper-slide-active { opacity: 1; transform: scale(1.15); }
-        .swiper-slide-active .sport-card { transform: scale(1.2); }
-      `}</style>
-
-      <header>
-        <div className="logos">
+      <header className="flex items-center gap-3 bg-[#cdc186] p-4 shadow-md">
+        <div className="flex items-center gap-2">
           <Image src="/ind.png" alt="ind" width={36} height={36} />
           <Image src="/jateng.png" alt="jateng" width={36} height={36} />
           <Image src="/smg.png" alt="smg" width={36} height={36} />
           <Image src="/logo.png" alt="logo" width={36} height={36} />
         </div>
-        <div className="brand" aria-hidden="true">FitTogether</div>
+        <div className="absolute left-1/2 -translate-x-1/2 font-black italic text-2xl text-[#08121a]">
+          FitTogether
+        </div>
       </header>
 
-      <div className="banner">
-        <p>Selamat datang di website kami, semoga anda sehat selalu. salam kasih dari kami — FitTogether Team</p>
+      <div className="bg-white text-black text-sm p-2 overflow-hidden whitespace-nowrap">
+        <p className="inline-block animate-[marquee_14s_linear_infinite] [padding-left:100%]">
+          Selamat datang di website kami, semoga anda sehat selalu. salam kasih dari kami — FitTogether Team
+        </p>
       </div>
 
-      <main>
-        <div className="container">
-          <section className="intro-section">
-            <div className="intro-text">
-              <h2>Temukan Partner Olahraga Terbaik</h2>
-              <p className="desc">
+      <main className="bg-[#57a7e0] p-10 md:p-14">
+        <div className="container mx-auto max-w-6xl">
+          <section className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex-1 text-[#042331] order-2 md:order-1">
+              <h2 className="text-2xl md:text-3xl font-extrabold mb-2 text-[#032032]">
+                Temukan Partner Olahraga Terbaik
+              </h2>
+              <p className="text-sm leading-relaxed text-[#042b3a] mb-4">
                 Yuk! Bergabung dengan komunitas<br />
                 Seluruh Cabang Olahraga di Semarang.<br />
                 Diri yang sehat bukan hanya menjaga pola makan, tetapi perlu diimbangi dengan olahraga.
               </p>
-              <div className="btn-group">
-                <button className="btn" onClick={() => router.push("/daftar")}>
+              <div className="flex gap-3 mb-2">
+                <button
+                  className="bg-[#6e78f7] text-white py-2 px-4 rounded font-semibold"
+                  onClick={() => router.push("/daftar")}
+                >
                   Daftar Sekarang
                 </button>
-                <button className="btn secondary" onClick={() => router.push("/login")}>
+                <button
+                  className="bg-[#cfcfff] text-[#2b2b8a] py-2 px-4 rounded font-semibold"
+                  onClick={() => router.push("/login")}
+                >
                   Login
                 </button>
               </div>
             </div>
-            <div className="illustration">
-              <Image src="/illustration.png" alt="illustration" width={380} height={240} />
+            <div className="w-full md:w-[380px] md:flex-shrink-0 order-1 md:order-2">
+              <Image src="/illustration.png" alt="illustration" width={380} height={240} className="w-full h-auto block rounded-md" />
             </div>
           </section>
 
-          {/* Olahraga Populer */}
-          <h3 className="section-title">Olahraga Populer</h3>
+          <h3 className="text-[#06293a] font-bold text-xl mt-8 mb-4">
+            Olahraga Populer
+          </h3>
           <Swiper
             modules={[Autoplay]}
             slidesPerView={3}
@@ -210,11 +111,13 @@ export default function Home() {
             className="popular-carousel"
           >
             {popular.map((s, idx) => (
-              <SwiperSlide key={idx}>
-                <div className="sport-card">
-                  <div className="sport-inner-circle">{s.icon}</div>
-                  <div className="sport-name">{s.name}</div>
-                  <div className="partner-count">{s.count}</div>
+              <SwiperSlide key={idx} className="!w-48 text-center opacity-60 scale-85 transition-all duration-400 [&.swiper-slide-active]:opacity-100 [&.swiper-slide-active]:scale-115">
+                <div className="bg-white w-40 h-44 rounded-lg flex flex-col items-center justify-start p-3 shadow-md">
+                  <div className="bg-[#b7b7a3] w-20 h-20 rounded-full flex items-center justify-center mt-2 text-3xl">
+                    {s.icon}
+                  </div>
+                  <div className="mt-2 font-bold text-base">{s.name}</div>
+                  <div className="text-xs mt-1 font-semibold">{s.count}</div>
                 </div>
               </SwiperSlide>
             ))}
@@ -222,33 +125,41 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Testimonial */}
-      <section className="testimonial-section">
-        <div className="testimonial-header">
-          <h3>Apa Kata Mereka??</h3>
-          <p>Cerita Sukses dari anggota komunitas FitTogether</p>
+      <section className="bg-[#d7cac5] p-10 text-center -mt-5 rounded-t-lg">
+        <div className="text-[#beb7b7] mb-7">
+          <h3 className="text-2xl md:text-3xl font-bold mb-2">Apa Kata Mereka??</h3>
+          <p className="opacity-90 text-sm text-[#f0f0f0]">Cerita Sukses dari anggota komunitas FitTogether</p>
         </div>
 
-        <div className="comment-row">
-          <button className="nav-btn" onClick={prevTestimonial}>&#x25C0;</button>
-          <div className="comment-card">
-            <div className="comment-avatar">
-              {testimonials[testimonialIndex].name.split(" ").map(w => w[0]).slice(0,2).join("")}
+        <div className="flex items-center justify-center flex-wrap gap-4 mt-5">
+          <button
+            className="w-10 h-10 bg-white border-none rounded-md cursor-pointer text-xl shadow-lg"
+            onClick={prevTestimonial}
+          >
+            &#x25C0;
+          </button>
+          <div className="bg-white max-w-3xl p-5 rounded-lg shadow-xl flex gap-4 items-start text-left">
+            <div className="w-14 h-14 rounded-full bg-[#d9d9d9] flex items-center justify-center text-xl text-gray-700 font-bold">
+              {testimonials[testimonialIndex].name.split(" ").map(w => w[0]).slice(0, 2).join("")}
             </div>
-            <div className="comment-body">
-              <div style={{display:'flex', alignItems:'center', gap:8}}>
-                <div className="comment-name">{testimonials[testimonialIndex].name}</div>
-                <div className="comment-stars">{"★".repeat(testimonials[testimonialIndex].rating)}</div>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="font-extrabold text-base">{testimonials[testimonialIndex].name}</div>
+                <div className="text-[#f4b400] text-sm">{ "★".repeat(testimonials[testimonialIndex].rating)}</div>
               </div>
-              <div className="comment-role">{testimonials[testimonialIndex].role}</div>
-              <div className="comment-text">“{testimonials[testimonialIndex].text}”</div>
+              <div className="text-xs mb-1 text-gray-500">{testimonials[testimonialIndex].role}</div>
+              <div className="italic text-sm text-gray-800 leading-snug">“{testimonials[testimonialIndex].text}”</div>
             </div>
           </div>
-          <button className="nav-btn" onClick={nextTestimonial}>&#x25B6;</button>
+          <button
+            className="w-10 h-10 bg-white border-none rounded-md cursor-pointer text-xl shadow-lg"
+            onClick={nextTestimonial}
+          >
+            &#x25B6;
+          </button>
         </div>
       </section>
-
-      {/* 🎵 Music Player */}
+      
       <MusicPlayer />
     </>
   );

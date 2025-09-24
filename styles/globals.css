@@ -1,19 +1,33 @@
 @import "tailwindcss";
 
 
-/* ===== Custom CSS kamu ===== */
-.testimonial-section {
-  background: #d7cac5; /* coklat soft */
-  padding: 60px 20px;
+/* ===== CSS yang sudah dipindahkan dari index.js ===== */
+* { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
+body { background-color: #cc7b60ff; }
+
+header {
+  display:flex; align-items:center; gap:12px;
+  background:#cdc186; padding:10px 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+.logos { display:flex; gap:8px; align-items:center; }
+.brand { 
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 900;
+  font-style: italic;
+  font-size: 26px;
+  color: #08121a;
   text-align: center;
-  margin-top: -20px;               /* naik sedikit menutup biru */
-  border-radius: 12px 12px 0 0;    /* sudut atas melengkung */
+  line-height: 1;
+  pointer-events: none;
 }
 
 .banner {
-  background: #ffffff;            /* Ubah dari #e6dfb0 menjadi putih */
-  color: #000;                    /* Warna teks hitam agar terbaca jelas */
-  font-size: 13px;            
+  background: #ffffff;
+  color: #000;
+  font-size: 13px;
   padding: 6px 12px;
   overflow: hidden;
   white-space: nowrap;
@@ -22,44 +36,91 @@
   display: inline-block;
   padding-left: 100%;
   animation: marquee 14s linear infinite;
-  color: #000; /* Warna teks hitam konsisten */
+  color: #000;
 }
+@keyframes marquee { 0%{ transform:translateX(0);} 100%{ transform:translateX(-100%);} }
 
-.testimonial-header { 
-  color: #beb7b7;
-  margin-bottom: 28px;
+main {
+  background-color: #57a7e0;
+  padding: 36px 20px 56px 20px;
 }
-.testimonial-header h3 { 
-  font-size: 24px;
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-.testimonial-header p { 
-  opacity: 0.9;
-  font-size: 14px;
-  color: #f0f0f0;
-}
+.container { max-width:1100px; margin:0 auto; }
 
-/* Baris komentar */
-.comment-row { 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;   /* biar responsif */
-  gap: 16px;
-  margin-top: 20px;
-}
+.intro-section { display:flex; gap:24px; align-items:center; justify-content:space-between; }
+.intro-text { flex:1 1 520px; color:#042331; }
+.intro-text h2 { font-size:26px; font-weight:800; margin-bottom:8px; color:#032032; }
+.desc { font-size:14px; line-height:1.5; color:#042b3a; margin-bottom:14px; }
+.btn-group { display:flex; gap:11px; margin-bottom:6px; }
+.btn { background:#6e78f7; color:white; padding:8px 14px; border-radius:4px; border:none; cursor:pointer; font-weight:600; }
+.btn.secondary { background:#cfcfff; color:#2b2b8a; }
 
-/* Kartu komentar */
+.illustration { width:380px; max-width:46%; flex:0 0 380px; }
+.illustration img { width:100%; height:auto; display:block; border-radius:8px; }
+
+.section-title { color:#06293a; font-weight:700; font-size:18px; margin:30px 0 14px 0; }
+
+.popular-sports { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; padding:16px 8px; }
+.sport-card {
+  background: #ffffffff;
+  width:150px; height:160px; border-radius:8px;
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  padding:12px; box-shadow: 0 6px 14px rgba(11,15,20,0.06);
+}
+.sport-inner-circle {
+  background:#b7b7a3; width:74px; height:74px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  margin-top:8px; font-size:30px;
+}
+.sport-name { margin-top:10px; font-weight:700; font-size:15px; }
+.partner-count { font-size:12px; margin-top:6px; font-weight:600; }
+
+.testimonial-section {
+  background: #a79f9cff;
+  padding: 40px 20px;
+  text-align:center;
+}
+.testimonial-header { color:#fff; margin-bottom:20px; }
+.testimonial-header h3 { font-size:22px; margin-bottom:8px; }
+.testimonial-header p { opacity:0.9; font-size:14px; color:#ddd; }
+
+.comment-row { display:flex; align-items:center; justify-content:center; gap:14px; }
 .comment-card {
-  background: #fff;
-  width: 720px;
-  max-width: calc(100% - 40px); /* lebih responsif di mobile */
-  padding: 20px;
-  border-radius: 12px;
+  background:#fff;
+  width:720px;
+  max-width: calc(100% - 140px);
+  padding: 18px;
+  border-radius: 6px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  text-align: left;
+  display:flex; gap:14px; align-items:flex-start;
 }
+.comment-avatar { width:54px; height:54px; border-radius:50%; background:#d9d9d9;
+  display:flex; align-items:center; justify-content:center; font-size:20px; color:#444; font-weight:bold; }
+.comment-body { flex:1; text-align:left; }
+.comment-name { font-weight:800; font-size:15px; margin-bottom:4px; }
+.comment-role { font-size:12px; margin-bottom:6px; color:#666; }
+.comment-text { font-style:italic; font-size:13px; color:#222; line-height:1.4; }
+.comment-stars { margin-left:10px; color:#f4b400; font-size:14px; }
+
+.nav-btn {
+  background:#fff;
+  border:none;
+  width:40px; height:40px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 880px) {
+  .intro-section { flex-direction: column; gap:14px; }
+  .illustration { width:100%; order:2; }
+  .intro-text { order:1; }
+  .sport-card { width:140px; height:150px; }
+  .comment-card { width:92%; flex-direction:column; }
+}
+
+.popular-carousel { padding: 20px 0; }
+.popular-carousel .sport-card { transition: transform 0.4s ease, opacity 0.4s ease; }
+.swiper-slide { opacity: 0.6; transform: scale(0.85); }
+.swiper-slide-active { opacity: 1; transform: scale(1.15); }
+.swiper-slide-active .sport-card { transform: scale(1.2); }
