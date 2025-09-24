@@ -70,6 +70,21 @@ export default function Menu() {
           width: 140px; background:#fff; border: 2px solid #a6252a; border-radius: 8px;
           padding: 10px 8px; font-weight:700; color:#000; text-align:center; cursor:pointer;
           box-shadow: 0 8px 0 rgba(0,0,0,0.04);
+          position: relative;
+          user-select: none;
+          transition: all 0.2s ease;
+        }
+        .menu-item:hover {
+          background: #e3d9d9;
+          box-shadow: 0 6px 0 rgba(0,0,0,0.06);
+          border-color: #8a1a1a;
+        }
+
+        .menu-item.active {
+          border-color: #662323;
+          background: #fbd1d1;
+          cursor: default;
+          box-shadow: 0 0 6px #63ffca;
         }
 
         .support-box {
@@ -101,14 +116,17 @@ export default function Menu() {
             <div className="brand">FitTogether</div>
 
             <div className="header-icons">
-              <a className="icon" href="/home"><FaHome /></a>
-              <a className="icon" href="/profil"><FaUser /></a>
-
-              {/* ✅ FaBars merah saat aktif di /menu */}
-              <a className="icon" href="/menu">
-                <FaBars color={router.pathname === "/menu" ? "red" : "#000"} />
-              </a>
-
+              <Link href="/home" legacyBehavior>
+                <a className="icon"><FaHome /></a>
+              </Link>
+              <Link href="/profil" legacyBehavior>
+                <a className="icon"><FaUser /></a>
+              </Link>
+              <Link href="/menu" legacyBehavior>
+                <a className="icon">
+                  <FaBars color={router.pathname === "/menu" ? "red" : "#000"} />
+                </a>
+              </Link>
               <Link href="/" legacyBehavior>
                 <a className="icon-close" title="Tutup"><FaTimes /></a>
               </Link>
@@ -118,26 +136,23 @@ export default function Menu() {
 
         {/* PAGE CONTENT */}
         <div className="page-content">
-          {/* MARQUEE */}
           <div className="top-marquee">
             <div className="marquee">
               Selamat datang di website kami, semoga anda sehat selalu. salam kasih dari kami - FitTogether Team
             </div>
           </div>
 
-          {/* KONTEN UTAMA */}
           <div className="menu-container">
             <article className="menu-article">
               <h2>Artikel</h2>
               <p>
-                    Olahraga merupakan salah satu hal yang sangat penting dalam menunjang kesehatan masyarakat.
-                Olahraga kesehatan adalah kegiatan olah raga yang bertujuan untuk meningkatkan kesehatan
-                dan membawa manfaat bagi tubuh dan jiwa.Olahraga adalah kegiatan jasmani yang mengandung 
-                unsur bermain, melibatkan interaksi lingkungan dan perjuangan antara diri sendiri dengan orang 
-                lain dalam unsur alam, serta terbuka untuk semua lapisan masyarakat sesuai dengan kemampuan 
-                dan kesenanganya. Kesehatan memegang peranan penting dalam kehidupan seseorang. 
+                  Olahraga merupakan salah satu hal yang sangat penting dalam menunjang kesehatan masyarakat.
+                  Olahraga kesehatan adalah kegiatan olah raga yang bertujuan untuk meningkatkan kesehatan
+                  dan membawa manfaat bagi tubuh dan jiwa.Olahraga adalah kegiatan jasmani yang mengandung 
+                  unsur bermain, melibatkan interaksi lingkungan dan perjuangan antara diri sendiri dengan orang 
+                  lain dalam unsur alam, serta terbuka untuk semua lapisan masyarakat sesuai dengan kemampuan 
+                  dan kesenanganya. Kesehatan memegang peranan penting dalam kehidupan seseorang. 
               </p>
-              {/* ✅ Tombol ini langsung membuka file PDF */}
               <a 
                 href="/docs/177-181.pdf" 
                 className="learn-more-btn" 

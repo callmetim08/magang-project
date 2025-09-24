@@ -1,7 +1,5 @@
-/* ====== Import Tailwind ====== */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
 
 /* ===== Custom CSS kamu ===== */
 .testimonial-section {

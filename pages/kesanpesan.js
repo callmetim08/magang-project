@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaHome, FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 
-export default function kesanpesan() {
+export default function Kesanpesan() {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
 
@@ -361,6 +361,11 @@ export default function kesanpesan() {
               </button>
             </nav>
           </div>
+          <p>
+            <Link href="/menu" legacyBehavior>
+              <a className="icon-close"><FaTimes /></a>
+            </Link>
+          </p>
         </div>
 
         {/* FOOTER */}

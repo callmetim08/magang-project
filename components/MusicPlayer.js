@@ -16,15 +16,15 @@ export default function MusicPlayer() {
   };
 
   return (
-    <div className="fixed bottom-4 left-4 z-50 flex items-center justify-between bg-blue-600 text-white rounded-lg shadow-lg px-4 py-2 w-64">
+    <div className="fixed bottom-4 left-4 z-50 flex items-center gap-2 bg-blue-600 text-white rounded-lg shadow-lg p-1.5 pl-4 pr-1.5">
       {/* Audio */}
       <audio ref={audioRef} src="/music/bg-music.mp3" preload="auto" loop />
 
       {/* Kiri: icon + judul */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-0 w-25">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
+          className="w-12 h-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -34,13 +34,13 @@ export default function MusicPlayer() {
           <circle cx="6" cy="18" r="3" />
           <circle cx="18" cy="16" r="3" />
         </svg>
-        <span className="text-sm font-medium truncate">Ovanea</span>
+        <span className="text-sm font-medium truncate">Holiday</span>
       </div>
 
       {/* Kanan: tombol */}
       <button
         onClick={togglePlay}
-        className="flex items-center gap-1 px-3 py-1 text-sm bg-white text-blue-600 rounded hover:bg-gray-100 transition"
+        className="flex items-center gap-1 px-3 py-1 text-sm bg-white text-red-600 rounded-full hover:bg-gray-100 transition"
       >
         {isPlaying ? (
           <>
@@ -56,7 +56,6 @@ export default function MusicPlayer() {
               <rect x="6" y="4" width="4" height="16" />
               <rect x="14" y="4" width="4" height="16" />
             </svg>
-            Pause
           </>
         ) : (
           <>
@@ -71,7 +70,6 @@ export default function MusicPlayer() {
             >
               <polygon points="6 3 20 12 6 21 6 3" />
             </svg>
-            Play
           </>
         )}
       </button>
