@@ -116,6 +116,7 @@ export default function Menu() {
             <div className="brand">FitTogether</div>
 
             <div className="header-icons">
+              {/* ✅ Ini yang perlu diganti */}
               <Link href="/home" legacyBehavior>
                 <a className="icon"><FaHome /></a>
               </Link>
@@ -153,6 +154,7 @@ export default function Menu() {
                   lain dalam unsur alam, serta terbuka untuk semua lapisan masyarakat sesuai dengan kemampuan 
                   dan kesenanganya. Kesehatan memegang peranan penting dalam kehidupan seseorang. 
               </p>
+              {/* ✅ Ini tidak bermasalah karena bukan navigasi antar halaman */}
               <a 
                 href="/docs/177-181.pdf" 
                 className="learn-more-btn" 
@@ -164,6 +166,7 @@ export default function Menu() {
             </article>
 
             <nav className="menu-list">
+              {/* ✅ Ini sudah benar */}
               <Link href="/about" legacyBehavior>
                 <a className="menu-item">Tentang Kami</a>
               </Link>
